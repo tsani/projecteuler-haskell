@@ -1,0 +1,4 @@
+It turns out that problem 15 was actually a disguised pascals triangle!
+Typing the following into GHCi produces the correct answer:
+let factorial n = if n == 0 then 1 else n * factorial (n - 1)
+factorial 40 `div` (factorial 20)^2

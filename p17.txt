@@ -1,0 +1,4 @@
+This one was solved with a one-liner in the REPL. The essential function 
+just spelled out the number by using a map containing spellings
+of key words (1-20, 30, 40, 50, 60, 70, 80, 90, 100, 1000) and a
+recursive function with access to that map.

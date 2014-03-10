@@ -1,3 +1,4 @@
+-- some useful code for dealing with prime numbers
 
 primeFactors :: Integer -> [Integer]
 primeFactors n = filter (\p -> n `mod` p == 0) $ primesBelow n

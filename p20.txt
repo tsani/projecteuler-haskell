@@ -1,0 +1,6 @@
+This was fucking easy and I typed it straight into GHCi.
+
+sum $ map (\x -> read [x] :: Int) $ show $ fact 100
+where fact n
+    | n == 0 = 1
+    | otherwise = n * fact (n - 1)
