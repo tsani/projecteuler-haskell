@@ -1,0 +1,2 @@
+Notes:
+Reversing the n right-most elements in the string jumps (n! - 1) elements down the list, only if those n right-most elements are already in proper order.
