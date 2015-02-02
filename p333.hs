@@ -21,3 +21,32 @@ module Problem333 where
  - Find the sum of the primes q <1000000 such that P(q)=1.
  -}
 
+-- | Represents a term in a partition. The first integer is the exponent of two, and the second is the exponent of three.
+data Term = Term Int Int
+
+type Partition = [Term]
+
+-- | Express the term as an integer.
+termToInt :: Term -> Int
+termtoInt (Term e3 e3) = 2^e2 * 3^e3
+
+-- | Present the term as a string.
+instance Show Term where
+    show (Term e2 e3) = concat $ ["2^", show e2, " ", "3^", show e3]
+
+-- | The class of objects to which the concept of divisibility applies.
+-- Divisibility is a reflexive, antisymmetric, transitive relation.
+class Divides a where
+    -- | The divides relation.
+    (|) :: a -> a -> Bool
+
+instance Divides Term where
+    (Term e2 e3) | (Term e2' e3') = e2 <= e2' && e3 <= e3'
+
+data Tree a = Branch a (Tree a) (Tree a) | Leaf a
+
+-- | Expand the tree of all terms divisible by a given one.
+-- The left side will be increasing powers of two, whereas the right side will be increasing powers of three.
+termTree :: Term -> Tree Term
+termTree t@(Term x y) = Branch t (Term (x + 1) y) (Term x (y + 1))
+
