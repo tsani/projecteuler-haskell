@@ -1,10 +1,17 @@
-module Primes where
--- some useful code for dealing with prime numbers
+module Primes
+    ( primesBelow
+    )
+where
 
 primeFactors :: Integer -> [Integer]
 primeFactors n = filter (\p -> n `mod` p == 0) $ primesBelow n
 
--- Get all the prime numbers below a given limit by using the sieve of Erastosthenes
+-- | List of all primes below a given limit.
+--
+-- Computed with the Sieve of Eratosthenes.
+--
+-- > primesBelow 10
+-- [2,3,5,7]
 primesBelow :: Integer -> [Integer]
 primesBelow lim = multipleFilter' [2..lim] []
     where multipleFilter' :: [Integer] -> [Integer] -> [Integer]
